@@ -10,11 +10,11 @@
 // Import the interfaces
 #import "HelloWorldLayer.h"
 
-CCSprite *seeker1;
-CCSprite *cocosGuy;
-
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
+
+@synthesize seeker1;
+@synthesize cocosGuy;
 
 +(CCScene *) scene
 {
@@ -51,14 +51,14 @@ CCSprite *cocosGuy;
 		[self addChild: label];
         
         // create and initalize our seeker sprite, and add it to this layer
-        seeker1 = [CCSprite spriteWithFile:@"seeker.png"];
-        seeker1.position = ccp(50, 100);
-        [self addChild:seeker1];
+        self.seeker1 = [CCSprite spriteWithFile:@"seeker.png"];
+        self.seeker1.position = ccp(50, 100);
+        [self addChild:self.seeker1];
         
         // do the same for our cocos2d guy, reusing the app icon as its image
-        cocosGuy = [CCSprite spriteWithFile:@"Icon.png"];
-        cocosGuy.position = ccp(200, 300);
-        [self addChild:cocosGuy];
+        self.cocosGuy = [CCSprite spriteWithFile:@"Icon.png"];
+        self.cocosGuy.position = ccp(200, 300);
+        [self addChild:self.cocosGuy];
         
         // schedule a repeating callback on every frame
         [self schedule:@selector(nextFrame:)];
@@ -68,9 +68,10 @@ CCSprite *cocosGuy;
 
 - (void) nextFrame:(ccTime)dt
 {
-    seeker1.position = ccp(seeker1.position.x + 100*dt, seeker1.position.y);
-    if (seeker1.position.x > 480+32) {
-        seeker1.position = ccp(-32, seeker1.position.y);
+    self.seeker1.position = ccp(self.seeker1.position.x + 100*dt, 
+                                self.seeker1.position.y);
+    if (self.seeker1.position.x > 480+32) {
+        self.seeker1.position = ccp(-32, self.seeker1.position.y);
     }
 }
 
@@ -80,6 +81,8 @@ CCSprite *cocosGuy;
 	// in case you have something to dealloc, do it in this method
 	// in this particular example nothing needs to be released.
 	// cocos2d will automatically release all the children (Label)
+    self.cocosGuy = nil;
+    self.seeker1 = nil;
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];

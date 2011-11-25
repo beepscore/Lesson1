@@ -15,6 +15,9 @@
 {
 }
 
+@property (nonatomic, retain) CCSprite *seeker1;
+@property (nonatomic, retain) CCSprite *cocosGuy;
+
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
