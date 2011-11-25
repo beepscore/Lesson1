@@ -10,6 +10,14 @@
 // Import the interfaces
 #import "HelloWorldLayer.h"
 
+// declare anonymous category for "private" methods, avoid showing in .h file
+// Note in Objective C no method is private, it can be called from elsewhere.
+// Ref http://stackoverflow.com/questions/1052233/iphone-obj-c-anonymous-category-or-private-category
+@interface HelloWorldLayer ()
+- (void) nextFrame:(ccTime)dt;
+@end
+
+
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
@@ -31,6 +39,7 @@
 	return scene;
 }
 
+
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -40,10 +49,10 @@
 		
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
+        
 		// ask director the the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
-	
+        
 		// position the label on the center of the screen
 		label.position =  ccp( size.width /2 , size.height/2 );
 		
@@ -66,6 +75,7 @@
 	return self;
 }
 
+
 - (void) nextFrame:(ccTime)dt
 {
     self.seeker1.position = ccp(self.seeker1.position.x + 100*dt, 
@@ -74,6 +84,7 @@
         self.seeker1.position = ccp(-32, self.seeker1.position.y);
     }
 }
+
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
@@ -87,4 +98,5 @@
 	// don't forget to call "super dealloc"
 	[super dealloc];
 }
+
 @end
