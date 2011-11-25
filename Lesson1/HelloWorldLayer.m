@@ -10,6 +10,9 @@
 // Import the interfaces
 #import "HelloWorldLayer.h"
 
+CCSprite *seeker1;
+CCSprite *cocosGuy;
+
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
@@ -46,6 +49,16 @@
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
+        
+        // create and initalize our seeker sprite, and add it to this layer
+        seeker1 = [CCSprite spriteWithFile:@"seeker.png"];
+        seeker1.position = ccp(50, 100);
+        [self addChild:seeker1];
+        
+        // do the same for our cocos2d guy, reusing the app icon as its image
+        cocosGuy = [CCSprite spriteWithFile:@"Icon.png"];
+        cocosGuy.position = ccp(200, 300);
+        [self addChild:cocosGuy];
 	}
 	return self;
 }
