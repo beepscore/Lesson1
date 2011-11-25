@@ -59,8 +59,19 @@ CCSprite *cocosGuy;
         cocosGuy = [CCSprite spriteWithFile:@"Icon.png"];
         cocosGuy.position = ccp(200, 300);
         [self addChild:cocosGuy];
+        
+        // schedule a repeating callback on every frame
+        [self schedule:@selector(nextFrame:)];
 	}
 	return self;
+}
+
+- (void) nextFrame:(ccTime)dt
+{
+    seeker1.position = ccp(seeker1.position.x + 100*dt, seeker1.position.y);
+    if (seeker1.position.x > 480+32) {
+        seeker1.position = ccp(-32, seeker1.position.y);
+    }
 }
 
 // on "dealloc" you need to release all your retained objects
