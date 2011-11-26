@@ -9,12 +9,14 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "CCTouchDispatcher.h"
 
 // declare anonymous category for "private" methods, avoid showing in .h file
 // Note in Objective C no method is private, it can be called from elsewhere.
 // Ref http://stackoverflow.com/questions/1052233/iphone-obj-c-anonymous-category-or-private-category
 @interface HelloWorldLayer ()
 - (void) nextFrame:(ccTime)dt;
+- (void) registerWithTouchDispatcher;
 @end
 
 
@@ -71,8 +73,18 @@
         
         // schedule a repeating callback on every frame
         [self schedule:@selector(nextFrame:)];
+        
+        self.isTouchEnabled = YES;
 	}
 	return self;
+}
+
+
+- (void) registerWithTouchDispatcher
+{
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
+                                                     priority:0
+                                              swallowsTouches:YES];
 }
 
 
@@ -86,6 +98,24 @@
 }
 
 
+#pragma mark - CCTargetedTouchDelegate
+- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    return YES;
+}
+
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint location = [self convertTouchToNodeSpace:touch];
+    [self.cocosGuy stopAllActions];
+    // move cocosGuy to the touch location
+    [self.cocosGuy runAction:[CCMoveTo actionWithDuration:1
+                                                 position:location]];
+}
+
+
+#pragma mark -
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
