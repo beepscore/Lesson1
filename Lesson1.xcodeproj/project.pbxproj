@@ -124,6 +124,12 @@
 		DE47F399147B745D00C62AF6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE47F398147B745D00C62AF6 /* RootViewController.m */; };
 		DE47F39C147B745D00C62AF6 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE47F39B147B745D00C62AF6 /* HelloWorldLayer.m */; };
 		DE53718714804F4000D11807 /* seeker.png in Resources */ = {isa = PBXBuildFile; fileRef = DE53718614804F4000D11807 /* seeker.png */; };
+		DEACFE1A1480875C00C64531 /* myfirstbutton_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DEACFE141480875C00C64531 /* myfirstbutton_selected.png */; };
+		DEACFE1B1480875C00C64531 /* myfirstbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = DEACFE151480875C00C64531 /* myfirstbutton.png */; };
+		DEACFE1C1480875C00C64531 /* mysecondbutton_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DEACFE161480875C00C64531 /* mysecondbutton_selected.png */; };
+		DEACFE1D1480875C00C64531 /* mysecondbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = DEACFE171480875C00C64531 /* mysecondbutton.png */; };
+		DEACFE1E1480875C00C64531 /* mythirdbutton_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DEACFE181480875C00C64531 /* mythirdbutton_selected.png */; };
+		DEACFE1F1480875C00C64531 /* mythirdbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = DEACFE191480875C00C64531 /* mythirdbutton.png */; };
 		DEDB0AA8148077C60042A7EC /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DEDB0AA7148077C60042A7EC /* README.txt */; };
 /* End PBXBuildFile section */
 
@@ -366,6 +372,12 @@
 		DE47F39B147B745D00C62AF6 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		DE47F39D147B745D00C62AF6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		DE53718614804F4000D11807 /* seeker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seeker.png; path = Resources/seeker.png; sourceTree = "<group>"; };
+		DEACFE141480875C00C64531 /* myfirstbutton_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myfirstbutton_selected.png; path = Resources/myfirstbutton_selected.png; sourceTree = "<group>"; };
+		DEACFE151480875C00C64531 /* myfirstbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myfirstbutton.png; path = Resources/myfirstbutton.png; sourceTree = "<group>"; };
+		DEACFE161480875C00C64531 /* mysecondbutton_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mysecondbutton_selected.png; path = Resources/mysecondbutton_selected.png; sourceTree = "<group>"; };
+		DEACFE171480875C00C64531 /* mysecondbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mysecondbutton.png; path = Resources/mysecondbutton.png; sourceTree = "<group>"; };
+		DEACFE181480875C00C64531 /* mythirdbutton_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mythirdbutton_selected.png; path = Resources/mythirdbutton_selected.png; sourceTree = "<group>"; };
+		DEACFE191480875C00C64531 /* mythirdbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mythirdbutton.png; path = Resources/mythirdbutton.png; sourceTree = "<group>"; };
 		DEDB0AA7148077C60042A7EC /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,6 +453,12 @@
 		DE47F240147B745800C62AF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DEACFE141480875C00C64531 /* myfirstbutton_selected.png */,
+				DEACFE151480875C00C64531 /* myfirstbutton.png */,
+				DEACFE161480875C00C64531 /* mysecondbutton_selected.png */,
+				DEACFE171480875C00C64531 /* mysecondbutton.png */,
+				DEACFE181480875C00C64531 /* mythirdbutton_selected.png */,
+				DEACFE191480875C00C64531 /* mythirdbutton.png */,
 				DE53718614804F4000D11807 /* seeker.png */,
 				DE47F241147B745800C62AF6 /* Default.png */,
 				DE47F243147B745800C62AF6 /* fps_images.png */,
@@ -830,6 +848,12 @@
 				DE47F253147B745900C62AF6 /* iTunesArtwork in Resources */,
 				DE53718714804F4000D11807 /* seeker.png in Resources */,
 				DEDB0AA8148077C60042A7EC /* README.txt in Resources */,
+				DEACFE1A1480875C00C64531 /* myfirstbutton_selected.png in Resources */,
+				DEACFE1B1480875C00C64531 /* myfirstbutton.png in Resources */,
+				DEACFE1C1480875C00C64531 /* mysecondbutton_selected.png in Resources */,
+				DEACFE1D1480875C00C64531 /* mysecondbutton.png in Resources */,
+				DEACFE1E1480875C00C64531 /* mythirdbutton_selected.png in Resources */,
+				DEACFE1F1480875C00C64531 /* mythirdbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
