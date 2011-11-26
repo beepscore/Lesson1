@@ -6,7 +6,6 @@
 //  Copyright Beepscore LLC 2011. All rights reserved.
 //
 
-
 // Import the interfaces
 #import "HelloWorldLayer.h"
 #import "CCTouchDispatcher.h"
@@ -17,6 +16,11 @@
 @interface HelloWorldLayer ()
 - (void)nextFrame:(ccTime)dt;
 - (void)registerWithTouchDispatcher;
+
+- (void) setUpMenus;
+- (void) doSomethingOne:(CCMenuItem*)menuItem;
+- (void) doSomethingTwo:(CCMenuItem*)menuItem;
+- (void) doSomethingThree:(CCMenuItem*)menuItem;
 @end
 
 
@@ -25,6 +29,7 @@
 
 @synthesize cocosGuy;
 @synthesize seeker1;
+
 
 + (CCScene *)scene
 {
@@ -41,7 +46,7 @@
 	return scene;
 }
 
-
+#pragma mark - Lifecycle methods
 - (id)init
 {
     self = [super init];
@@ -72,12 +77,77 @@
         // schedule a repeating callback on every frame
         [self schedule:@selector(nextFrame:)];
         
+        [self setUpMenus];
+        
         self.isTouchEnabled = YES;
 	}
 	return self;
 }
 
 
+- (void)dealloc
+{
+	// cocos2d will automatically release all the children (Label)
+    self.cocosGuy = nil;
+    self.seeker1 = nil;
+	
+	[super dealloc];
+}
+
+
+#pragma mark - Menus
+- (void) setUpMenus
+{
+	// Create some menu items
+	CCMenuItemImage * menuItem1 =[CCMenuItemImage 
+                                  itemFromNormalImage:@"myFirstButton.png"
+                                  selectedImage: @"myFirstButton_selected.png"
+                                  target:self
+                                  selector:@selector(doSomethingOne:)];
+    
+	CCMenuItemImage * menuItem2 =[CCMenuItemImage 
+                                  itemFromNormalImage:@"mySecondButton.png"
+                                  selectedImage: @"mySecondButton_selected.png"
+                                  target:self
+                                  selector:@selector(doSomethingTwo:)];
+    
+	CCMenuItemImage * menuItem3 =[CCMenuItemImage 
+                                  itemFromNormalImage:@"myThirdButton.png"
+                                  selectedImage: @"myThirdButton_selected.png"
+                                  target:self
+                                  selector:@selector(doSomethingThree:)]; 
+    
+	// Create a menu and add your menu items to it
+	CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, nil];
+    
+	// Arrange the menu items vertically
+	[myMenu alignItemsVertically];
+    
+	// add the menu to your scene
+	[self addChild:myMenu];
+}
+
+
+- (void) doSomethingOne: (CCMenuItem  *) menuItem 
+{
+	NSLog(@"The first menu was called");
+}
+
+
+- (void) doSomethingTwo: (CCMenuItem  *) menuItem 
+{
+	NSLog(@"The second menu was called");
+}
+
+
+- (void) doSomethingThree: (CCMenuItem  *) menuItem 
+{
+	NSLog(@"The third menu was called");
+}
+
+
+#pragma mark -
+// override
 - (void)registerWithTouchDispatcher
 {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
@@ -113,15 +183,5 @@
                                                  position:location]];
 }
 
-
-#pragma mark -
-- (void)dealloc
-{
-	// cocos2d will automatically release all the children (Label)
-    self.cocosGuy = nil;
-    self.seeker1 = nil;
-	
-	[super dealloc];
-}
 
 @end
