@@ -18,9 +18,6 @@
 - (void)registerWithTouchDispatcher;
 
 - (void) setUpMenus;
-- (void) doSomethingOne:(CCMenuItem*)menuItem;
-- (void) doSomethingTwo:(CCMenuItem*)menuItem;
-- (void) doSomethingThree:(CCMenuItem*)menuItem;
 @end
 
 
@@ -99,23 +96,30 @@
 - (void) setUpMenus
 {
 	// Create some menu items
-	CCMenuItemImage * menuItem1 =[CCMenuItemImage 
-                                  itemFromNormalImage:@"myFirstButton.png"
-                                  selectedImage: @"myFirstButton_selected.png"
-                                  target:self
-                                  selector:@selector(doSomethingOne:)];
     
-	CCMenuItemImage * menuItem2 =[CCMenuItemImage 
-                                  itemFromNormalImage:@"mySecondButton.png"
-                                  selectedImage: @"mySecondButton_selected.png"
-                                  target:self
-                                  selector:@selector(doSomethingTwo:)];
+    CCMenuItemImage * menuItem1 =  [CCMenuItemImage 
+                                    itemFromNormalImage:@"myFirstButton.png" 
+                                    selectedImage:@"myFirstButton_selected.png"
+                                    block:^(id sender)
+                                    {
+                                        NSLog(@"The first menu was called");
+                                    }];
     
-	CCMenuItemImage * menuItem3 =[CCMenuItemImage 
-                                  itemFromNormalImage:@"myThirdButton.png"
-                                  selectedImage: @"myThirdButton_selected.png"
-                                  target:self
-                                  selector:@selector(doSomethingThree:)]; 
+	CCMenuItemImage * menuItem2 = [CCMenuItemImage 
+                                   itemFromNormalImage:@"mySecondButton.png"
+                                   selectedImage: @"mySecondButton_selected.png"
+                                   block:^(id sender)
+                                   {
+                                       NSLog(@"The second menu was called");
+                                   }];
+    
+	CCMenuItemImage * menuItem3 = [CCMenuItemImage 
+                                   itemFromNormalImage:@"myThirdButton.png"
+                                   selectedImage: @"myThirdButton_selected.png"
+                                   block:^(id sender)
+                                   {
+                                       NSLog(@"The third menu was called");
+                                   }];
     
 	// Create a menu and add your menu items to it
 	CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, nil];
@@ -126,25 +130,6 @@
 	// add the menu to your scene
 	[self addChild:myMenu];
 }
-
-
-- (void) doSomethingOne: (CCMenuItem  *) menuItem 
-{
-	NSLog(@"The first menu was called");
-}
-
-
-- (void) doSomethingTwo: (CCMenuItem  *) menuItem 
-{
-	NSLog(@"The second menu was called");
-}
-
-
-- (void) doSomethingThree: (CCMenuItem  *) menuItem 
-{
-	NSLog(@"The third menu was called");
-}
-
 
 #pragma mark -
 // override
