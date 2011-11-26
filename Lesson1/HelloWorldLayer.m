@@ -15,18 +15,18 @@
 // Note in Objective C no method is private, it can be called from elsewhere.
 // Ref http://stackoverflow.com/questions/1052233/iphone-obj-c-anonymous-category-or-private-category
 @interface HelloWorldLayer ()
-- (void) nextFrame:(ccTime)dt;
-- (void) registerWithTouchDispatcher;
+- (void)nextFrame:(ccTime)dt;
+- (void)registerWithTouchDispatcher;
 @end
 
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
-@synthesize seeker1;
 @synthesize cocosGuy;
+@synthesize seeker1;
 
-+(CCScene *) scene
++ (CCScene *)scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
@@ -42,13 +42,11 @@
 }
 
 
-// on "init" you need to initialize your instance
--(id) init
+- (id)init
 {
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super" return value
-	if( (self=[super init])) {
-		
+    self = [super init];
+	if (self)
+    {		
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
         
@@ -80,7 +78,7 @@
 }
 
 
-- (void) registerWithTouchDispatcher
+- (void)registerWithTouchDispatcher
 {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
                                                      priority:0
@@ -88,18 +86,19 @@
 }
 
 
-- (void) nextFrame:(ccTime)dt
+- (void)nextFrame:(ccTime)dt
 {
     self.seeker1.position = ccp(self.seeker1.position.x + 100*dt, 
                                 self.seeker1.position.y);
-    if (self.seeker1.position.x > 480+32) {
+    if (self.seeker1.position.x > 480+32)
+    {
         self.seeker1.position = ccp(-32, self.seeker1.position.y);
     }
 }
 
 
 #pragma mark - CCTargetedTouchDelegate
-- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     return YES;
 }
@@ -116,16 +115,12 @@
 
 
 #pragma mark -
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc
+- (void)dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
 	// cocos2d will automatically release all the children (Label)
     self.cocosGuy = nil;
     self.seeker1 = nil;
 	
-	// don't forget to call "super dealloc"
 	[super dealloc];
 }
 
