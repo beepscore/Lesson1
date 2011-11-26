@@ -124,6 +124,7 @@
 		DE47F399147B745D00C62AF6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE47F398147B745D00C62AF6 /* RootViewController.m */; };
 		DE47F39C147B745D00C62AF6 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE47F39B147B745D00C62AF6 /* HelloWorldLayer.m */; };
 		DE53718714804F4000D11807 /* seeker.png in Resources */ = {isa = PBXBuildFile; fileRef = DE53718614804F4000D11807 /* seeker.png */; };
+		DEDB0AA8148077C60042A7EC /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DEDB0AA7148077C60042A7EC /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -365,6 +366,7 @@
 		DE47F39B147B745D00C62AF6 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		DE47F39D147B745D00C62AF6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		DE53718614804F4000D11807 /* seeker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seeker.png; path = Resources/seeker.png; sourceTree = "<group>"; };
+		DEDB0AA7148077C60042A7EC /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +391,7 @@
 		DE47F220147B745800C62AF6 = {
 			isa = PBXGroup;
 			children = (
+				DEDB0AA7148077C60042A7EC /* README.txt */,
 				DE47F23F147B745800C62AF6 /* Lesson1 */,
 				DE47F22E147B745800C62AF6 /* Frameworks */,
 				DE47F22C147B745800C62AF6 /* Products */,
@@ -826,6 +829,7 @@
 				DE47F250147B745800C62AF6 /* Icon@2x.png in Resources */,
 				DE47F253147B745900C62AF6 /* iTunesArtwork in Resources */,
 				DE53718714804F4000D11807 /* seeker.png in Resources */,
+				DEDB0AA8148077C60042A7EC /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
